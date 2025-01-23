@@ -101,7 +101,7 @@
       <!--a href="#Introduction">Introduction</a-->
       <!--a href="#Installation">Installation</a-->
       <!--a href="#Usage">Usage</a-->
-      <a href="index_compare.html">Compare.csv</a>
+      <a href="index10.html">Esker.onDemand</a>
       <a href="index_mnr.html">COSCO MNR</a>
     </div>
   </div>
@@ -111,8 +111,8 @@
     <nav id="navbar">
       <header id="navbar-header">
         <div>
-          <img src="./assets/esker.JPG" alt="Esker Logo" />
-          <span>Esker.onDemand</span>
+          <img src="./assets/microsoft_excel.JPG" alt="Excel Logo" />
+          <span>Compare.csv</span>
         </div>
       </header>
       <ul class="nav-list nobullets">
@@ -120,7 +120,7 @@
         <li><a class="nav-link notextdec link-grey" href="#Installation">Installation</a></li>
         <li><a class="nav-link notextdec link-grey" href="#Usage">Usage</a></li>
         <li><a class="nav-link notextdec link-grey" href="#Handling_User_Input">Handling User Input</a></li>
-        <li><a class="nav-link notextdec link-grey" href="#Update_Vendor_Data">Update Vendor Data</a></li>
+        <li><a class="nav-link notextdec link-grey" href="#Data Preparation">Data Preparation</a></li>
         <li><a class="nav-link notextdec link-grey" href="#Run_The_exe_File">Run the .exe File</a></li>
         <li><a class="nav-link notextdec link-grey" href="#Reference">Reference</a></li>
       </ul>
@@ -134,17 +134,9 @@
         <h1>Introduction</h1>
         <article>
             <p>
-              Esker (pronounced /ɛh·skuh/) Accounts Payable Automation is a progressive framework for automating the
-              source-to-pay (S2P) lifecycle. By design, Esker is designed to enable data capture, touchless processing,
-              and electronic workflows capabilities. The end result is a simpler, more efficient way to process
-              invoices, manage cash flow, and generate new revenue.
-            <p>
-              If you'd like to learn more about Esker before diving in, 
-              <a href="https://videos.esker.com/watch/NmNPjCYkkURwXVPEsBbEGQ?" 
-              target="_blank" 
-              class="link-grey text-bold"
-              >watch a free video on Esker here</a>.
-            </p>
+              A simple tool to comapre 2 csv files. The end result is saved in a new csv file.
+            </p>              
+            
         </article>
       </section>
 
@@ -159,7 +151,7 @@
 						</p>
 						<p>Request download Link</p>
 						<p>
-							<textarea id="text" style="display:none;">send download link .exe file</textarea>
+							<textarea id="text" style="display:none;">send compare.csv download link .exe file</textarea>
                     		<input type="button" value="Send Request Email" onclick="openOutlookEmail()" class="styled-button"/>						
 						</p>
 
@@ -192,16 +184,19 @@
         <article>
             <p>
                 Download the .exe file and save in Downloads folder.
-                Save a copy of 'vendor_update.xlsx' in Downloads folder.
+                Save a copies of 'our_data.xlsx', 'cust_data.xlsx', and 'cust_diff.csv' in Downloads folder.
             </p>
             <p>Folder structure</p>
             <p>
                 <code
-                    >C:/Users/your.name/Downloads/vendor_update.xlsx</code
+                    >C:/Users/your.name/Downloads/our_data.xlsx
+                    C:/Users/your.name/Downloads/cust_data.xlsx
+                    C:/Users/your.name/Downloads/cust_diff.xlsx
+                    C:/Users/your.name/Downloads/app</code
                 >
             </p>						
             <p>
-                We have downloaded and saved the .exe and excel files. Now we can run the app.
+                Now we can run the app and compare.
             </p>						
         </article>
     </section>
@@ -224,17 +219,17 @@
     </section>
 
     <section class="main-section" id="Update vendor data">
-        <h2>Update Vendor data</h2>
+        <h2>Data Preparation</h2>
         <article>
-            <p>User inputs vendor data in excel file.</p>
+            <p>Column A is primary key (common to both files). Column B is for comparison.</p>
             <p>Excel</p>
             <p>
                 <code
-                    ><a href="https://freeimage.host/i/2rlQMzu"><img src="https://iili.io/2rlQMzu.md.jpg" alt="2rlQMzu.md.jpg" border="0"></a><br /><a target='_blank' </a><br /></code
+                    ><a href="https://freeimage.host/2iH5fRI"><img src="https://iili.io/2iH5fRI.jpg" alt="2iH5fRI.jpg" border="0"></a><br /><a target='_blank' </a><br /></code
                 >
             </p>
             <p>
-                This example shows a sample of the excel file containing updated vendor data.
+                This example shows a sample of the excel file with required columns.
             </p>
         </article>
     </section>
@@ -247,17 +242,17 @@
             </p>
             <ol>
                 <li>
-                    Automated Esker vendor update process opens a new Chrome browser window.
+                    Python code executes in background. Result is saved to cust_diff.xlsx
                     <ul>
                         <li>
                             Chrome updates automatically in the background. Current versions for Windows: Chrome 131+
                             
                         </li>
                         <li>
-                            Data input from user populated excel file. Mouse clicks and page navigations fully automated.
+                            Data input from user populated csv files.
                         </li>
                         <li>
-                            When process is completed, the browser window will close.
+                            When process is completed, differences saved in cust_diff.xlsx
                         </li>
                     </ul>
                 </li>
@@ -265,9 +260,7 @@
                     Process can be scheduled to run on a regular basis. Alternatively, the .exe file can be run manually on-demand.
                 </li>
             </ol>
-            <p>
-                Implementing a fully automated data entry process significantly reduces the risk of human error. By eliminating manual, time-intensive tasks, employees are empowered to concentrate on strategic, value-added initiatives.
-            </p>
+            
         </article>
     </section>
 
@@ -289,7 +282,7 @@
     <script type="text/javascript">
         function openOutlookEmail() {
             var body = document.getElementById('text').value;
-            var subject = "Esker - Request Download Link";
+            var subject = "Compare csv - Request Download Link";
             var mailto_link = 'mailto:john.tan@sh-cogent.com.sg?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
             window.location.href = mailto_link;
         }
